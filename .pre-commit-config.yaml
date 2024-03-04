@@ -12,8 +12,10 @@ repos:
       - id: check-merge-conflict
       # JSON formatting. Prettier's unwrapping is undesirable
       - id: pretty-format-json
-        args: [--autofix, --no-ensure-ascii, --no-sort-keys]
-  # For Markdown and YAML
+        types: [file] # override `types: [json]`
+        files: \.(json|dit)$
+        args: [--autofix, --no-ensure-ascii, --no-sort-keys, --indent, "	"]
+        # For Markdown and YAML
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: "v3.1.0"
     hooks:
